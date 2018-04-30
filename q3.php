@@ -27,55 +27,38 @@ $route = $_SERVER['PHP_SELF'];
 
 		<form action="<?php echo htmlspecialchars($route)?>">
     
-			<input type="text" name="first_name" placeholder="Enter first name here" method="post">
-      <input type="text" name="last_name" placeholder="Enter last name here" method="post">
+			<input type="text" name="first_name" placeholder="Enter first name here" method="get">
+      <input type="text" name="last_name" placeholder="Enter last name here" method="get">
 			<button>Submit</button>
     </form>
     
 
 	<?php
 
-// class userClass
-// {
-//   // public $greeting = 'Hello!';
-//   private $first_name = 'first_name';
-//   private $last_name = 'last_name';
-
-// }
-
-// class userClass {
-
-//     private $first_name = 'first_name';
-//     private $last_name = 'last_name';
-			 
-// 		public function Grettings() {
-// 		echo 'Hello ' .($_GET[this.$first_name]) . ' ' . ($_GET[this.$last_name]) . '!';
-// 		}
-// }
-
-// class userClass {
-
-// 	private $first_name = 'first_name';
-// 	private $last_name = 'last_name';
+	//This works
+	// $first_name = 'first_name';
+	// $last_name = 'last_name';
 		 
-// 	public function Grettings() {
-// 	echo 'Hello ' .($_POST[$this->first_name]) . ' ' . ($_POST[$this->last_name]) . '!';
-// 	}
-// }
-
+	// echo 'Hello ' .($_GET[$first_name]) . ' ' . ($_GET[$last_name]) . '!';
+	 
 class userClass {
 
-	private $first_name = 'first_name';
-	private $last_name = 'last_name';
+	private $first_name;
+	private $last_name;
 		 
 	function __construct($first_name, $last_name) {
-	echo 'Hello ' .($this->first_name) . ' ' . ($this->last_name) . '!';
+		$this->firstname = $first_name;
+		$this->lastname = $last_name;
+
+	}
+	public function greet(){
+		return 'Hello ' . ($this->firstname) . ' ' . ($this->last_name) . '!';
 	}
 }
 
+$me = new userClass($first_name, $last_name);
+echo $me->greet();
 
-
-
-	?>
+?>
 </body>
 </html>
